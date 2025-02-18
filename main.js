@@ -7,9 +7,13 @@ const mobileMenu = document.querySelector('.mobile-menu')
 const navbarShoppingCart = document.querySelector('.navbar-shopping-cart')
 const aside = document.querySelector('#shoppingCartContainer')
 
+const productDetailContainer = document.querySelector('#productDetail')
+const productDetailClose = document.querySelector('.product-detail-close')
+
 navbarEmail.addEventListener('click', toggleDesktopMenu)
 menuHamIcon.addEventListener('click', toggleMobileMenu)
 navbarShoppingCart.addEventListener('click', toggleProductDetail)
+productDetailClose.addEventListener('click', closeProductDetail)
 
 
 function toggleDesktopMenu() {
@@ -19,11 +23,25 @@ function toggleDesktopMenu() {
 function toggleMobileMenu() {
     mobileMenu.classList.toggle('inactive')
     aside.classList.add('inactive')
+    productDetailContainer.classList.add('inactive')
 }
 function toggleProductDetail() {
     aside.classList.toggle('inactive')
     mobileMenu.classList.add('inactive')
     desktopMenu.classList.add('inactive')
+    productDetailContainer.classList.add('inactive')
+}
+function openProductDetailAside() {
+    productDetailContainer.classList.remove('inactive')
+
+    mobileMenu.classList.add('inactive')
+    desktopMenu.classList.add('inactive')
+}
+function closeProductDetail(){
+    productDetailContainer.classList.add('inactive')
+    mobileMenu.classList.add('inactive')
+    desktopMenu.classList.add('inactive')
+    aside.classList.add('inactive')
 }
 
 const productList = [];
@@ -53,6 +71,7 @@ const productList = [];
             const image = document.createElement('img')
             image.setAttribute('src', product.image)
             image.setAttribute('alt',product.name)
+            image.addEventListener('click', openProductDetailAside)
         
             const productInfo = document.createElement('div')
             productInfo.classList.add('product-info')
