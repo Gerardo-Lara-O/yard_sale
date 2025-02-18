@@ -5,7 +5,7 @@ const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu')
 
 const navbarShoppingCart = document.querySelector('.navbar-shopping-cart')
-const aside = document.querySelector('.product-detail')
+const aside = document.querySelector('#shoppingCartContainer')
 
 navbarEmail.addEventListener('click', toggleDesktopMenu)
 menuHamIcon.addEventListener('click', toggleMobileMenu)
